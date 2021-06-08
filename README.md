@@ -1,12 +1,18 @@
 # Install-Git
  ติดตั้งใช้งาน Git
+ 
+### Install Git-scm
+
+~~~
+$ sudo apt-get install git
+~~~
 
 ### Gid Command
 
 **กำหนดค่าผู้ใช้งาน**
 
 ~~~
-git config
+git config ต่อด้วย Option
 ~~~
 
 ใช้สำหรับ การเปลี่ยนแปลง และ การกำหนดค่าผู้ใช้เริ่มต้นของ Git
@@ -43,10 +49,53 @@ git init
 
 ใช้ในการ “intialize” โครงการ หรือ ก็คือการกำหนดค่าเริ่มต้นให้กับโครงการของเราก่อนที่เราจะเริ่มใช้งาน git 
 
+~~~
+git clone  ต่อด้วย URL
+~~~
 
-Add
+**ตัวอย่าง**
 
-Clone 
+~~~
+git clone https://github.com/GridsRasPi/Project-XXXX.git
+~~~
+
+ใช้สำหรับ clone repositories ลงมาจาก Web เพื่อทำงานต่อ (ใช้กรณีที่ไม่เคยมี Repository นี้มาก่อน)
+
+~~~
+git status
+~~~
+
+status คือ การตรวจสอบสถานะของแฟ้ม ถ้ามีการเปลี่ยนแปลงก็จะแสดงให้เราเห็นว่ามีการแก้ที่ไหน ก่อนที่เราจะทำการใช้ git add ลำดับถัดไป
+
+~~~
+git add
+~~~
+
+add คือ การเพิ่มไฟล์ที่มีการเปลี่ยนแปลงก่อนเพื่อจะ commit โดยแบ่งตามการทำงานดังนี้
+
+~~~
+git add . 
+~~~
+
+หมายถึง ต้องการเพิ่มไฟล์ทั้งหมดที่มีการเปลี่ยนแปลงก่อนจะ commit
+
+~~~
+git add [path] 
+~~~
+
+หมายถึง ต้องการแอดทีละไฟล์ ตามพาธที่เราต้องการ (unstage -> stage) ก่อนจะ commit
+
+git commit
+
+commit คือ เริ่มเก็บประวัติการเปลี่ยนแปลงของแฟ้มต่างๆ ก่อนที่จะ ในโปรเจคโดยตอนนี้จะยังอยู่ใน Local Repository ส่วน -a หมายถึง All คือทั้งหมดที่มีการเปลี่ยนแปลง ส่วน -am ทั้งหมดและต้องการใส่คอมเม้นข้อความด้วย
+
+git push origin [branch name]
+push คือ การส่ง commit ที่ Local Repository ไปยัง Remote Repository
+
+git pull origin [branch name]
+pull คือ การดึง Remote Repository ไฟล์มายัง Local Repository เพื่อทำการอัพเดต โดยหลักๆที่จะเจอคือ pull มาแล้วทำงานต่อได้เลยและอีกแบบ pull มาแล้วเกิดการ merge และอาจจะเกิด conflict file กันซึ่งเราก็ต้องทำการแก้ไฟล์ที่ error แจ้งมาจะบอกว่าไฟล์อะไรบ้างที่มีการ conflict
+
+
 
 Exit Repo
 
